@@ -7,6 +7,7 @@ function selectPlace(place) {
 
 function sendWhatsApp() {
     const message = `I would like to go to ${selectedPlace}!`;
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    const phoneNumber = '6285765317040'; // Add your phone number here
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl);
 }
