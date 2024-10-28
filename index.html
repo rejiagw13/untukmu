@@ -6,8 +6,47 @@
     <title>Choose Your Date Spot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .animated {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
+     <div class="text-center animated" id="greeting">
+        <h1>Hi beautiful, how are you?</h1>
+        <button class="btn btn-success" onclick="showMainPage()">I’m fine</button>
+        <button class="btn btn-danger" onclick="bye()">Bye</button>
+    </div>
+
+    <script>
+        function showMainPage() {
+            document.body.innerHTML = `
+                <div class='container text-center'>
+                    <h1>Welcome to Our Date Spot!</h1>
+                    <audio autoplay loop>
+                        <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'>
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>`;
+        }
+
+        function bye() {
+            // Do nothing, maintain current page
+        }
+    </script>
     <div class="container text-center my-5">
         <h1 class="animated fadeIn">Choose Your Date Spot</h1>
         <h2 class="animated fadeIn">Where would you like to go?</h2>
