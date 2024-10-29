@@ -8,11 +8,12 @@
     <style>
         body {
             display: flex;
+            flex-direction: column; /* Stack elements vertically */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto; /* Allow height to adjust based on content */
             background-color: #f8f9fa;
-            overflow: hidden; /* Prevent scrolling during greeting */
+            padding: 20px; /* Add padding for mobile */
         }
         .animated {
             opacity: 0;
@@ -25,6 +26,7 @@
         .place {
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            margin-bottom: 15px; /* Space between items */
         }
         .place:hover {
             transform: scale(1.05); /* Scale up on hover */
@@ -32,6 +34,8 @@
         }
         .btn {
             transition: background-color 0.3s, color 0.3s;
+            width: 100%; /* Full width buttons */
+            padding: 15px; /* Increased padding for touch targets */
         }
         .btn:hover {
             background-color: #007bff; /* Change background color on hover */
@@ -40,28 +44,25 @@
 
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column; /* Stack elements vertically */
-                height: auto; /* Allow height to adjust based on content */
-                overflow-y: auto; /* Allow scrolling on smaller screens */
-            }
-
-            .container {
-                padding: 15px; /* Add padding for smaller screens */
-                width: 100%; /* Full width on mobile */
-            }
-
             h1 {
-                font-size: 1.5em; /* Adjust font size for heading */
+                font-size: 1.8em; /* Adjust font size for heading */
+                margin-bottom: 10px; /* Space below heading */
             }
 
             h2 {
-                font-size: 1.2em; /* Adjust font size for subheading */
+                font-size: 1.5em; /* Adjust font size for subheading */
+                margin-bottom: 20px; /* Space below subheading */
             }
 
-            .place {
+            .container {
                 width: 100%; /* Full width on mobile */
-                margin-bottom: 15px; /* Space between items */
+                padding-left: 15px; /* Padding for left side */
+                padding-right: 15px; /* Padding for right side */
+            }
+
+            .place img {
+                max-width: 100%; /* Responsive image scaling */
+                height: auto; /* Maintain aspect ratio */
             }
         }
     </style>
@@ -79,19 +80,19 @@
             <h2 class="animated fadeIn">Where would you like to go?</h2>
 
             <div class="row mt-4">
-                <div class="col-md-3 place" onclick="selectPlace('Hidden Place')">
+                <div class="col-12 place" onclick="selectPlace('Hidden Place')">
                     <img src="images/Hidden.jpg" alt="Hidden Place" class="img-fluid animated zoomIn">
                     <p>Hidden Place</p>
                 </div>
-                <div class="col-md-3 place" onclick="selectPlace('Floc.Co')">
+                <div class="col-12 place" onclick="selectPlace('Floc.Co')">
                     <img src="images/floc.jpg" alt="Floc.Co" class="img-fluid animated zoomIn">
                     <p>Floc.Co</p>
                 </div>
-                <div class="col-md-3 place" onclick="selectPlace('Earthbake')">
+                <div class="col-12 place" onclick="selectPlace('Earthbake')">
                     <img src="images/earthbake.jpg" alt="Earthbake" class="img-fluid animated zoomIn">
                     <p>Earthbake</p>
                 </div>
-                <div class="col-md-3 place" onclick="selectPlace('Gunung Sibayak')">
+                <div class="col-12 place" onclick="selectPlace('Gunung Sibayak')">
                     <img src="images/sibayak.jpeg" alt="Gunung Sibayak" class="img-fluid animated zoomIn">
                     <p>Gunung Sibayak</p>
                 </div>
