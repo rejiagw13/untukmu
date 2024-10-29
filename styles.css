@@ -1,35 +1,36 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #f8f9fa;
 }
 
-.place {
-    cursor: pointer;
-    transition: transform 0.3s;
+.animated {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
-.place:hover {
-    transform: scale(1.05);
-}
-
-h1, h2 {
-    animation-duration: 1s;
-}
-
-.img-fluid {
-    border-radius: 15px;
-}
-
-/* Animation styles */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes zoomIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.place {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
-.animated {
-    animation-fill-mode: forwards;
+.place:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #007bff; /* Change background color on hover */
+    color: white; /* Change text color on hover */
 }
