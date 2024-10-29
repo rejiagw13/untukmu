@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensure proper scaling -->
     <title>Choose Your Date Spot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -11,9 +11,9 @@
             flex-direction: column; /* Stack elements vertically */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto; /* Allow height to adjust based on content */
             background: linear-gradient(to right, #FFB6B9, #FAE3D9); /* Soft gradient background */
-            overflow: hidden; /* Prevent scrolling during greeting */
+            padding: 20px; /* Add some padding for better spacing */
         }
         .animated {
             opacity: 0;
