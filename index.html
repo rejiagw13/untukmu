@@ -37,6 +37,33 @@
             background-color: #007bff; /* Change background color on hover */
             color: white; /* Change text color on hover */
         }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Stack elements vertically */
+                height: auto; /* Allow height to adjust based on content */
+                overflow-y: auto; /* Allow scrolling on smaller screens */
+            }
+
+            .container {
+                padding: 15px; /* Add padding for smaller screens */
+                width: 100%; /* Full width on mobile */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Adjust font size for heading */
+            }
+
+            h2 {
+                font-size: 1.2em; /* Adjust font size for subheading */
+            }
+
+            .place {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 15px; /* Space between items */
+            }
+        }
     </style>
 </head>
 <body>
@@ -78,7 +105,7 @@
 
             <!-- Background music -->
             <audio autoplay loop>
-                <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'> <!-- Online source -->
+                <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'>
                 Your browser does not support the audio tag.
             </audio>
         </div>
@@ -115,7 +142,7 @@
 
         function sendWhatsApp() {
             const message = `I would like to go to ${selectedPlace}!`;
-            const phoneNumber = '+6285765317040'; // Replace with your actual phone number
+            const phoneNumber = '1234567'; // Replace with your actual phone number
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl);
         }
