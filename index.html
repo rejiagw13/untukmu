@@ -6,6 +6,39 @@
     <title>Choose Your Date Spot</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
     <script src="scripts.js" defer></script> <!-- Link to your JS -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            overflow: hidden; /* Prevent scrolling during greeting */
+        }
+        .animated {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .place {
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .place:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+        }
+        .btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: #007bff; /* Change background color on hover */
+            color: white; /* Change text color on hover */
+        }
+    </style>
 </head>
 <body>
     <div class="text-center animated" id="greeting">
@@ -23,34 +56,18 @@
                 <div class="col-md-3 place" onclick="selectPlace('Hidden Place')">
                     <img src="images/Hidden.jpg" alt="Hidden Place" class="img-fluid animated zoomIn">
                     <p>Hidden Place</p>
-                    <ul>
-                        <li><strong>Pros:</strong> Secluded atmosphere, unique decor, good food options.</li>
-                        <li><strong>Cons:</strong> Accessibility issues, limited space.</li>
-                    </ul>
                 </div>
                 <div class="col-md-3 place" onclick="selectPlace('Floc.Co')">
                     <img src="images/floc.jpg" alt="Floc.Co" class="img-fluid animated zoomIn">
                     <p>Floc.Co</p>
-                    <ul>
-                        <li><strong>Pros:</strong> Charming ambiance, diverse menu, good coffee.</li>
-                        <li><strong>Cons:</strong> Busy during peak hours, limited outdoor seating.</li>
-                    </ul>
                 </div>
                 <div class="col-md-3 place" onclick="selectPlace('Earthbake')">
                     <img src="images/earthbake.jpg" alt="Earthbake" class="img-fluid animated zoomIn">
                     <p>Earthbake</p>
-                    <ul>
-                        <li><strong>Pros:</strong> Artisan bakery, warm atmosphere, healthy options.</li>
-                        <li><strong>Cons:</strong> Limited dinner options, potential wait times.</li>
-                    </ul>
                 </div>
                 <div class="col-md-3 place" onclick="selectPlace('Gunung Sibayak')">
                     <img src="images/sibayak.jpeg" alt="Gunung Sibayak" class="img-fluid animated zoomIn">
                     <p>Gunung Sibayak</p>
-                    <ul>
-                        <li><strong>Pros:</strong> Scenic views, hiking experience, natural hot springs nearby.</li>
-                        <li><strong>Cons:</strong> Weather dependency, active volcano risks.</li>
-                    </ul>
                 </div>
             </div>
 
