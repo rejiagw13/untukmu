@@ -4,40 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Date Spot</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            overflow: hidden; /* Prevent scrolling during greeting */
-        }
-        .animated {
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .place {
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .place:hover {
-            transform: scale(1.05); /* Scale up on hover */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
-        }
-        .btn {
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .btn:hover {
-            background-color: #007bff; /* Change background color on hover */
-            color: white; /* Change text color on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <script src="scripts.js" defer></script> <!-- Link to your JS -->
 </head>
 <body>
     <div class="text-center animated" id="greeting">
@@ -46,79 +14,64 @@
         <button class="btn btn-danger" onclick="bye()">Bye</button>
     </div>
 
-    <script>
-        function showMainPage() {
-            document.body.innerHTML = `
-                <div class='container text-center my-5'>
-                    <h1 class="animated fadeIn">Choose Your Date Spot</h1>
-                    <h2 class="animated fadeIn">Where would you like to go?</h2>
+    <div id="mainContent" style="display:none;">
+        <div class='container text-center my-5'>
+            <h1 class="animated fadeIn">Choose Your Date Spot</h1>
+            <h2 class="animated fadeIn">Where would you like to go?</h2>
 
-                    <div class="row mt-4">
-                        <div class="col-md-3 place" onclick="selectPlace('Hidden Place')">
-                            <img src="images/Hidden.jpg" alt="Hidden Place" class="img-fluid animated zoomIn">
-                            <p>Hidden Place</p>
-                            <ul>
-                                <li><strong>Pros:</strong> Secluded atmosphere, unique decor, good food options.</li>
-                                <li><strong>Cons:</strong> Accessibility issues, limited space.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 place" onclick="selectPlace('Floc.Co')">
-                            <img src="images/floc.jpg" alt="Floc.Co" class="img-fluid animated zoomIn">
-                            <p>Floc.Co</p>
-                            <ul>
-                                <li><strong>Pros:</strong> Charming ambiance, diverse menu, good coffee.</li>
-                                <li><strong>Cons:</strong> Busy during peak hours, limited outdoor seating.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 place" onclick="selectPlace('Earthbake')">
-                            <img src="images/earthbake.jpg" alt="Earthbake" class="img-fluid animated zoomIn">
-                            <p>Earthbake</p>
-                            <ul>
-                                <li><strong>Pros:</strong> Artisan bakery, warm atmosphere, healthy options.</li>
-                                <li><strong>Cons:</strong> Limited dinner options, potential wait times.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 place" onclick="selectPlace('Gunung Sibayak')">
-                            <img src="images/sibayak.jpeg" alt="Gunung Sibayak" class="img-fluid animated zoomIn">
-                            <p>Gunung Sibayak</p>
-                            <ul>
-                                <li><strong>Pros:</strong> Scenic views, hiking experience, natural hot springs nearby.</li>
-                                <li><strong>Cons:</strong> Weather dependency, active volcano risks.</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="row mt-4">
+                <div class="col-md-3 place" onclick="selectPlace('Hidden Place')">
+                    <img src="images/Hidden.jpg" alt="Hidden Place" class="img-fluid animated zoomIn">
+                    <p>Hidden Place</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Secluded atmosphere, unique decor, good food options.</li>
+                        <li><strong>Cons:</strong> Accessibility issues, limited space.</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 place" onclick="selectPlace('Floc.Co')">
+                    <img src="images/floc.jpg" alt="Floc.Co" class="img-fluid animated zoomIn">
+                    <p>Floc.Co</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Charming ambiance, diverse menu, good coffee.</li>
+                        <li><strong>Cons:</strong> Busy during peak hours, limited outdoor seating.</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 place" onclick="selectPlace('Earthbake')">
+                    <img src="images/earthbake.jpg" alt="Earthbake" class="img-fluid animated zoomIn">
+                    <p>Earthbake</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Artisan bakery, warm atmosphere, healthy options.</li>
+                        <li><strong>Cons:</strong> Limited dinner options, potential wait times.</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 place" onclick="selectPlace('Gunung Sibayak')">
+                    <img src="images/sibayak.jpeg" alt="Gunung Sibayak" class="img-fluid animated zoomIn">
+                    <p>Gunung Sibayak</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Scenic views, hiking experience, natural hot springs nearby.</li>
+                        <li><strong>Cons:</strong> Weather dependency, active volcano risks.</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <button id="goButton" class="btn btn-primary mt-4" style="display:none;" onclick="sendWhatsApp()">Let's go!</button>
+            <!-- Display selected choice -->
+            <div id="selectedChoice" class="mt-4"></div>
 
-                    <!-- Background music -->
-                    <audio autoplay loop>
-                        <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'>
-                        Your browser does not support the audio tag.
-                    </audio>
-                </div>`;
-        }
+            <!-- Show 'Let's go!' button -->
+            <button id="goButton" class="btn btn-primary mt-4" style="display:none;" onclick="sendWhatsApp()">Let's go!</button>
 
-        function bye() {
-            // Do nothing, maintain current page
-        }
-
-        function selectPlace(place) {
-            // Logic for selecting a place
-            const message = `I would like to go to ${place}!`;
-            document.getElementById('goButton').style.display = 'block'; // Show the button when a place is selected
-        }
-
-        function sendWhatsApp() {
-            const message = `I would like to go to ${selectedPlace}!`;
-            const phoneNumber = '1234567'; // Replace with your actual phone number
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl);
-        }
-    </script>
+            <!-- Background music -->
+            <audio autoplay loop>
+                <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'>
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
