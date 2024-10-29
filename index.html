@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensure proper scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Choose Your Date Spot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -41,61 +41,46 @@
             background-color: #007bff; /* Change background color on hover */
             color: white; /* Change text color on hover */
         }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5em; /* Adjust font size for heading */
-                margin-bottom: 10px; /* Space below heading */
-            }
-
-            h2 {
-                font-size: 1.2em; /* Adjust font size for subheading */
-                margin-bottom: 20px; /* Space below subheading */
-            }
-
-            .container {
-                width: 100%; /* Full width on mobile */
-                padding-left: 15px; /* Padding for left side */
-                padding-right: 15px; /* Padding for right side */
-            }
-
-            .place img {
-                max-width: 100%; /* Responsive image scaling */
-                height: auto; /* Maintain aspect ratio */
-            }
-        }
     </style>
 </head>
 <body>
+
+    <!-- Greeting Section -->
     <div class="text-center animated" id="greeting">
         <h1>Hi beautiful, how are you?</h1>
         <button class="btn btn-success" onclick="showMainPage()">I’m fine</button>
         <button class="btn btn-danger" onclick="bye()">Bye</button>
     </div>
 
+    <!-- Main Content Section -->
     <div id="mainContent" style="display:none;">
         <div class='container text-center my-5'>
             <h1 class="animated fadeIn">Choose Your Date Spot</h1>
             <h2 class="animated fadeIn">Where would you like to go?</h2>
 
+            <!-- Places Selection -->
             <div class="row mt-4">
+                <!-- Each place has an onclick event that calls selectPlace() -->
                 <div class="col-12 col-md-3 place" onclick="selectPlace('Hidden Place')">
                     <img src="images/Hidden.jpg" alt="Hidden Place" class="img-fluid animated zoomIn">
                     <p>Hidden Place</p>
                 </div>
+
                 <div class="col-12 col-md-3 place" onclick="selectPlace('Floc.Co')">
                     <img src="images/floc.jpg" alt="Floc.Co" class="img-fluid animated zoomIn">
                     <p>Floc.Co</p>
                 </div>
+
                 <div class="col-12 col-md-3 place" onclick="selectPlace('Earthbake')">
                     <img src="images/earthbake.jpg" alt="Earthbake" class="img-fluid animated zoomIn">
                     <p>Earthbake</p>
                 </div>
+
                 <div class="col-12 col-md-3 place" onclick="selectPlace('Gunung Sibayak')">
                     <img src="images/sibayak.jpeg" alt="Gunung Sibayak" class="img-fluid animated zoomIn">
                     <p>Gunung Sibayak</p>
                 </div>
+
             </div>
 
             <!-- Display selected choice -->
@@ -106,9 +91,11 @@
 
             <!-- Background music -->
             <audio autoplay loop>
+                <!-- Use an online source for audio -->
                 <source src='https://www.bensound.com/bensound-music/bensound-romantic.mp3' type='audio/mpeg'>
                 Your browser does not support the audio tag.
             </audio>
+
         </div>
     </div>
 
@@ -118,36 +105,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- JavaScript Functions -->
-    <script>
-        let selectedPlace = ''; // Declare selectedPlace globally
-
-        function showMainPage() {
-            document.getElementById('greeting').style.display = 'none'; // Hide greeting
-            document.getElementById('mainContent').style.display = 'block'; // Show main content
-        }
-
-        function bye() {
-            // Do nothing, maintain current page
-        }
-
-        function selectPlace(place) {
-            selectedPlace = place; // Store the selected place
-            document.getElementById('goButton').style.display = 'block'; // Show the button when a place is selected
-            
-            // Display the selected choice dynamically
-            const choiceDiv = document.getElementById('selectedChoice');
-            choiceDiv.innerHTML = `
-                <h3>You have selected:</h3>
-                <h4>${place}</h4>`;
-        }
-
-        function sendWhatsApp() {
-            const message = `I would like to go to ${selectedPlace}!`;
-            const phoneNumber = '1234567'; // Replace with your actual phone number
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl);
-        }
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
